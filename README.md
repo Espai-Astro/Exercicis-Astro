@@ -1,2 +1,2 @@
 # Exercicis-Astro
-Exercicis per conèixer Astro
+Exercicis per conèixer i practicar Astro
