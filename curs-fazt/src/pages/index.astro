@@ -1,0 +1,58 @@
+---
+console.log('Hola Astro des del servidor');
+import Layout from '../layouts/Layout.astro';
+const títol = 'Hola Astro, i benvinguts tots';
+const midaTítol = 'midaT';
+const color = 'avis';
+
+const aficions = ['Programar', 'Llegir', 'Escriure', 'Mirar pel·lícules'];
+
+const ésActiu = true;
+const textActiu = 'Actiu';
+
+const salutació = "bon dia";
+---
+
+<Layout title='Welcome to Astro.'>
+  <main>
+    <h1 class=`titol ${midaTítol}`>{títol}</h1>
+    <p>Suma: 3 + 3 = <span class={color}>{3 + 3}</span></p>
+    <ul>Aficions meves són: {aficions.map((aficio) => <li class={color}>{aficio}</li>)}</ul>
+		<p>Actiu <span class={ésActiu ? 'actiu' : 'inactiu'}>{ésActiu ? textActiu : 'inactiu'}</span></span></p>
+		<p>{salutació && `Hola ${salutació}`}</p>
+  </main>
+</Layout>
+
+<style>
+  .titol {
+    color: skyblue;
+  }
+
+  .midaT {
+    font-size: 40px;
+  }
+
+  .avis {
+    color: darkorange;
+  }
+
+	ul {
+		display: flex;
+		list-style: none;
+		gap: 1rem;
+	}
+
+	.actiu {
+		color: green;
+	}
+
+	.inactiu {
+		color: red;
+	}
+
+	.
+</style>
+
+<script>
+  console.log('Hola Astro');
+</script>
