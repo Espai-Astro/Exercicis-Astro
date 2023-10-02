@@ -1,5 +1,6 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
+titol: El meu primer post
 ---
 
 # El meu primer post

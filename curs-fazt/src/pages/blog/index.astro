@@ -1,32 +1,71 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import fotoCodi from '../../assets/img/codephoto.jpg';
+console.log(fotoCodi);
 
-const postsBlog = await Astro.glob('.posts/*.md')
-console.log("postsBlog -->",postsBlog);
+type Post = {
+  [key: string]: any;
+};
+
+const postsBlog: Post[] = await Astro.glob('./posts/*.md');
+console.log(
+  'urlsPostsBlog -->',
+  postsBlog.map((post) => post)
+);
 ---
 
 <Layout
   titolPagina='Espai pel blog'
   descripcioPàgina="S'hi poden llegir els articles publicats">
   <h1>Blog</h1>
+  <div class='div-foto-codi'>
+    <img src={fotoCodi.src} alt='Foto de codi' />
+  </div>
   <div class='llista-articles'>
-    <a href='/blog/post1'>Post 1</a>
-    <a href='/blog/post2'>Post 2</a>
+    {
+      postsBlog.map(({ url, frontmatter }: Post) => (
+        <button>
+          <a
+            href={url}
+            title={`Llegir '${frontmatter.titol}' - ${url.split('/')[3]}`}>
+            {frontmatter.titol}
+          </a>
+        </button>
+      ))
+    }
   </div>
 </Layout>
 
 <style>
+  .div-foto-codi {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
   .llista-articles {
     display: flex;
     gap: 1rem;
     list-style: none;
-		
-    a {
-			text-decoration: none;
-      color: white;
-			padding: 1rem;
-      border: 1px solid white;
+    padding: 1.5rem;
+
+    button {
+      cursor: pointer;
+      padding: 1rem;
+      border: 1px solid #f0f0f0;
       border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #202020;
     }
   }
 </style>
