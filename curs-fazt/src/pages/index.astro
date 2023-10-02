@@ -1,6 +1,6 @@
 ---
-console.log('Hola Astro des del servidor');
 import Layout from '../layouts/Layout.astro';
+
 const títol = 'Hola Astro, i benvinguts tots';
 const midaTítol = 'midaT';
 const color = 'avis';
@@ -12,8 +12,11 @@ const textActiu = 'Actiu';
 
 const salutació = "bon dia";
 ---
+<script>
+  console.log('Hola Astro');
+</script>
 
-<Layout title='Welcome to Astro.'>
+<Layout descripcioPàgina="Pàgina inicial del curs, des d'on surten tots els enllaços">
   <main>
     <h1 class=`titol ${midaTítol}`>{títol}</h1>
     <p>Suma: 3 + 3 = <span class={color}>{3 + 3}</span></p>
@@ -53,6 +56,4 @@ const salutació = "bon dia";
 	.
 </style>
 
-<script>
-  console.log('Hola Astro');
-</script>
+

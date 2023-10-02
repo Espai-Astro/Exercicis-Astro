@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const postsBlog = await Astro.glob('.posts/*.md')
+console.log("postsBlog -->",postsBlog);
+---
+
+<Layout
+  titolPagina='Espai pel blog'
+  descripcioPàgina="S'hi poden llegir els articles publicats">
+  <h1>Blog</h1>
+  <div class='llista-articles'>
+    <a href='/blog/post1'>Post 1</a>
+    <a href='/blog/post2'>Post 2</a>
+  </div>
+</Layout>
+
+<style>
+  .llista-articles {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+		
+    a {
+			text-decoration: none;
+      color: white;
+			padding: 1rem;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+  }
+</style>

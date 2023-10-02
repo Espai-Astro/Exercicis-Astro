@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+const resposta = await fetch('https://jsonplaceholder.typicode.com/posts');
+const posts: Post[] = (await resposta.json()).slice(0, 10);
+
+console.log('Títol post 1 -->', posts[0].title);
+---
+
+<Layout titolPagina='Posts' descripcioPàgina="Les meves publicacions al blog, des d'un fetch">
+  <h2>Les meves publicacions</h2>
+  <ol>
+    {
+      posts.map((post) => (
+        <li>
+          <ul class='element-post'>
+            <h4>{post.title}</h4>
+            <li>UserId: {post.userId}</li>
+            <li>Body: {post.body}</li>
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+</Layout>
+
+<style>
+  .element-post {
+    list-style: none;
+    margin-top: 1.6rem;
+    padding-left: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    h4 {
+      color: rgb(102, 153, 197);
+      margin-bottom: 0.6rem;
+    }
+
+    li {
+      color: rgb(186, 212, 200);
+      font-size: 0.8rem;
+    }
+
+    li:nth-of-type(1) {
+      color: rgb(219, 89, 89);
+    }
+  }
+</style>

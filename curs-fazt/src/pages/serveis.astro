@@ -1,8 +1,15 @@
 ---
+import Servei from '../components/Servei.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Serveis'>
+<Layout titolPagina='Serveis' descripcioPàgina='Serveis de les coses que sabem fer'>
   <h2>Serveis del nostre lloc web</h2>
   <p>Elaborat per llopFilms &copy;2023</p>
+
+  <Servei nomServei="Disseny" contingut="Imaginiem i fem un disseny complet del vostre lloc web"/>
+  <Servei nomServei="Programació" contingut="Programem tot el que convingui"/>
+  <Servei nomServei="Testeig" contingut="Fem les proves a nivell d'usuari per estar segurs que tot funciona bé"/>
+  <Servei nomServei="Manteniment" contingut="Mantenim el nostre lloc web de manera continuada i apliquem millores"/>
+  <Servei />
 </Layout>

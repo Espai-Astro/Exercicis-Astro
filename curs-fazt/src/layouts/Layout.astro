@@ -1,29 +1,32 @@
 ---
 interface Props {
-  title: string;
+  titolPagina?: string;
+  descripcioPàgina?: string;
 }
 
-const { title } = Astro.props;
+console.log('Props a Layout -->', Astro.props);
+const { titolPagina = 'Títol per defecte', descripcioPàgina } = Astro.props;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='ca'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
+    <meta name='description' content={descripcioPàgina} />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
+    <title>Curs Fazt | {titolPagina}</title>
   </head>
   <body>
     <slot />
   </body>
 </html>
+
 <style is:global>
   body {
+    font-family: Ubuntu, sans-serif;
     background-color: #202020;
     color: white;
   }
 </style>
-
