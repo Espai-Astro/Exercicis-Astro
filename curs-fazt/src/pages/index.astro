@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BotoSubcripcio from '../components/BotoSubscripcio';
 
 const títol = 'Hola Astro, i benvinguts tots';
 const midaTítol = 'midaT';
@@ -7,23 +8,35 @@ const color = 'avis';
 
 const aficions = ['Programar', 'Llegir', 'Escriure', 'Mirar pel·lícules'];
 
-const ésActiu = true;
+const ésActiu = false;
 const textActiu = 'Actiu';
 
-const salutació = "bon dia";
+const salutació = 'bon dia';
 ---
+
 <script>
   console.log('Hola Astro');
 </script>
 
-<Layout descripcioPàgina="Pàgina inicial del curs, des d'on surten tots els enllaços">
+<Layout
+  descripcioPàgina="Pàgina inicial del curs, des d'on surten tots els enllaços">
   <main>
     <h1 class=`titol ${midaTítol}`>{títol}</h1>
     <p>Suma: 3 + 3 = <span class={color}>{3 + 3}</span></p>
-    <ul>Aficions meves són: {aficions.map((aficio) => <li class={color}>{aficio}</li>)}</ul>
-		<p>Actiu <span class={ésActiu ? 'actiu' : 'inactiu'}>{ésActiu ? textActiu : 'inactiu'}</span></span></p>
-		<p>{salutació && `Hola ${salutació}`}</p>
+    <ul>
+      Aficions meves són: {
+        aficions.map((aficio) => <li class={color}>{aficio}</li>)
+      }
+    </ul>
+    <p>
+      Actiu <span class={ésActiu ? 'actiu' : 'inactiu'}
+        >{ésActiu ? textActiu : 'inactiu'}</span
+      >
+    </p>
   </main>
+  <p>{salutació && `Hola ${salutació}`}</p>
+
+  <BotoSubcripcio client:visible />
 </Layout>
 
 <style>
@@ -39,21 +52,17 @@ const salutació = "bon dia";
     color: darkorange;
   }
 
-	ul {
-		display: flex;
-		list-style: none;
-		gap: 1rem;
-	}
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+  }
 
-	.actiu {
-		color: green;
-	}
+  .actiu {
+    color: green;
+  }
 
-	.inactiu {
-		color: red;
-	}
-
-	.
+  .inactiu {
+    color: red;
+  }
 </style>
-
-
