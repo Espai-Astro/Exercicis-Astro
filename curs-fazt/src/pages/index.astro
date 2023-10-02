@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BotoSubcripcio from '../components/BotoSubscripcio';
+import Navegador from '../components/Navegador.astro';
 
 const títol = 'Hola Astro, i benvinguts tots';
 const midaTítol = 'midaT';
@@ -36,7 +37,8 @@ const salutació = 'bon dia';
   </main>
   <p>{salutació && `Hola ${salutació}`}</p>
 
-  <BotoSubcripcio client:visible />
+  <BotoSubcripcio client:visible/>
+  <Navegador/>
 </Layout>
 
 <style>

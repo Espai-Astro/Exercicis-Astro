@@ -7,8 +7,15 @@ const BotoSubscripcio = () => {
   const [subscripcio, setSubscripcio] = useState(initialSubscripcio);
 
   return (
-    <>
+    <div>
       <button
+        style={{
+          'cursor' : 'pointer',
+          'padding': '0.5rem 1rem',
+          'background-color': 'skyblue',
+          'border': '2px solid black',
+          'border-radius': '0.5rem',
+        }}
         onClick={() => {
           if (!subscripcio) {
             toast.success(`T'has subscrit a la newsletter`, {
@@ -26,7 +33,7 @@ const BotoSubscripcio = () => {
         {subscripcio ? 'Estàs subscrit' : "Donar-se d'alta"}
       </button>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 export default BotoSubscripcio;

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BotoReton from '../components/BotoReton.astro';
 
 interface Post {
   userId: number;
@@ -29,6 +30,7 @@ console.log('Títol post 1 -->', posts[0].title);
       ))
     }
   </ol>
+  <BotoReton/>
 </Layout>
 
 <style>
